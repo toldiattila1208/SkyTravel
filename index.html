@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyTravel</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #87CEEB;
+            margin: 20px;
+            text-align: center;
+            background-image: url('hatter.jpg');
+        }
+
+        header {
+            background-color: #4682B4;
+            padding: 20px;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav {
+            margin-top: 10px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+            margin: 0 15px;
+            font-size: 18px;
+        }
+
+        section {
+            margin: 20px 0;
+        }
+
+        h2 {
+            color: #4682B4;
+        }
+
+        p {
+            color: #333;
+        }
+
+        
+        .image-container {
+            display: inline-block;
+            position: relative;
+            width: 639px; 
+            height: 317px; 
+            margin: 10px;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            transition: transform 0.5s;
+        }
+
+        .front {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.5); /* Fehér átlátszó réteg */
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            opacity: 0; /* Kezdetben láthatatlan */
+            transition: opacity 0.5s; /* Animáció a láthatatlansághoz */
+        }
+
+        /* Hátsó réteg, fehér háttérrel a másik oldalon */
+        .image-container .back {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color:#4682B4;
+            transform: rotateY(180deg);
+            transition: transform 0.5s;
+            backface-visibility: hidden;
+        }
+
+        .image-container:hover img {
+            transform: rotateY(180deg);
+        }
+
+        .image-container:hover .back {
+            transform: rotateY(0deg);
+        }
+
+        .image-container:hover .front {
+            opacity: 1; 
+        }
+
+        .text-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+        }
+
+        footer {
+            background-color: #4682B4;
+            padding: 10px;
+            color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header style="display: flex; align-items: center; justify-content: space-between;">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <img src="logo.png" alt="logo">
+        </div>
+        <h1 >SkyTravel</h1>
+
+        <p style="color: black;">Élmények Európa felfedezésével!</p>
+    
+
+        <nav>
+            <a href="index.html">Kezdőoldal</a>
+            <a href="index2.html">Jegyrendelés</a>
+            <a href="index3.html">Csomagfeladás</a>
+        </nav>
+    </header>
+
+    <section>
+        
+        <h2>Bemutatkozás</h2>
+        <p>Üdvözöljük weboldalunkon! Képekkel illusztrált bemutatkozás az utazásokról.</p>
+        <p>Mindent <b>megtettünk</b> azért hogy az utazóink az utazás mellett <b>felejthetetlen élményben legyenek részesek!</b></p>
+        <p>Mivel mi egy új vállalat vagyunk ezért arra gondoltunk hogy az <b>első utazások mindenhova "20.000FT" lesz!</b></p>
+        <div class="image-container">
+            <div class="front">
+                <p>Az utazóink többsége ide utazik a legtöbbször és ezt a látványosságot nézik meg.
+                    "Budapest"
+                </p>
+            </div>
+            <img src="budapest.png" alt="Budapest">
+            <div class="back"></div>
+        </div>
+        <div class="image-container">
+            <div class="front">
+                <p>Ide az utazóink a gyönyörű esti fények miatt utaznak a véleményük szerint.
+                    "Róma"
+                </p>
+            </div>
+            <img src="roma.png" alt="Roma">
+            <div class="back"></div>
+        </div>
+        <div class="image-container">
+            <div class="front">
+                <p>Ebben a városban az utazóinkat a modern építkezés fogja meg a legjobban.
+                    "Oslo"
+                </p>
+            </div>
+            <img src="oslo.png" alt="Oslo">
+            <div class="back"></div>
+        </div>
+    </section>
+
+   
+
+</body>
+</html>

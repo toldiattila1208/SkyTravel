@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyTravel</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #87CEEB;
+            margin: 20px;
+            text-align: center;
+            background-image: url('hatter.jpg');
+        }
+
+        header {
+            background-color: #4682B4;
+            padding: 20px;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        section {
+            margin: 20px 0;
+        }
+
+        h2 {
+            color: #ffffff;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        input {
+            font-size: 16px;
+            padding: 8px;
+            margin-bottom: 15px;
+        }
+
+        button {
+            font-size: 18px;
+            padding: 10px 20px;
+            background-color: #4682B4;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            border-radius: 8px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 15px;
+        }
+
+        th {
+            background-color: #4682B4;
+            color: white;
+            font-weight: bold;
+        }
+
+        footer {
+            background-color: #4682B4;
+            padding: 10px;
+            color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        nav {
+            margin-top: 10px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+            margin: 0 15px;
+            font-size: 18px;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); 
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        .modal input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .modal button {
+            padding: 12px 20px;
+            background-color: #4682B4;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <img src="logo.png" alt="logo" style="align-self: flex-end;">
+
+        <h1>SkyTravel</h1>
+       
+        <p style="color: black;">Élmények Európa felfedezésével!</p>
+
+        <nav>
+            <a href="index.html">Kezdőoldal</a>
+            <a href="index2.html">Jegyrendelés</a>
+            <a href="index3.html">Csomagfeladás</a>
+        </nav>
+    </header>
+
+    <section>
+        <h2>Repülőjegy Keresése</h2>
+        <form id="searchForm">
+            <label for="departure">Indulás ország:</label>
+            <select id="departure" name="departure" required>
+                <option value="" disabled selected>Válasszon indulási országot</option>
+                <option value="Amszterdam">Amszterdam</option> <option value="Andorra la Vella">Andorra la Vella</option> <option value="Ankara">Ankara</option> <option value="Athén">Athén</option> <option value="Bécs">Bécs</option> <option value="Belgrád">Belgrád</option> <option value="Berlin">Berlin</option> <option value="Bern">Bern</option> <option value="Brüsszel">Brüsszel</option> <option value="Budapest">Budapest</option> <option value="Bukarest">Bukarest</option> <option value="Chișinău">Chișinău</option> <option value="Douglas (Man)">Douglas (Man)</option> <option value="Dublin">Dublin</option> <option value="Helsinki">Helsinki</option> <option value="Kijev">Kijev</option> <option value="Koppenhága">Koppenhága</option> <option value="Lisszabon">Lisszabon</option> <option value="Ljubljana">Ljubljana</option> <option value="London">London</option> <option value="Luxembourg">Luxembourg</option> <option value="Madrid">Madrid</option> <option value="Minszk">Minszk</option> <option value="Monaco (település)">Monaco (település)</option> <option value="Moszkva">Moszkva</option> <option value="Nicosia">Nicosia</option> <option value="Oslo">Oslo</option> <option value="Párizs">Párizs</option> <option value="Podgorica">Podgorica</option> <option value="Pozsony">Pozsony</option> <option value="Pristina">Pristina</option> <option value="Reykjavík">Reykjavík</option> <option value="Riga">Riga</option> <option value="Róma">Róma</option> <option value="Saint Helier">Saint Helier</option> <option value="Saint Peter Port">Saint Peter Port</option> <option value="San Marino (San Marino)">San Marino (San Marino)</option> <option value="Stockholm">Stockholm</option> <option value="Szarajevó">Szarajevó</option> <option value="Szkopje">Szkopje</option> <option value="Szófia">Szófia</option> <option value="Tallinn">Tallinn</option> <option value="Tirana">Tirana</option> <option value="Tiraszpol">Tiraszpol</option> <option value="Tórshavn">Tórshavn</option> <option value="Vaduz">Vaduz</option> <option value="Valletta">Valletta</option> <option value="Varsó">Varsó</option> <option value="Vatikán">Vatikán</option> <option value="Vilnius">Vilnius</option> <option value="Zágráb">Zágráb</option>
+                
+            </select>
+    
+            <label for="arrival">Érkezés ország:</label>
+            <select id="arrival" name="arrival" required>
+                <option value="" disabled selected>Válasszon érkezési országot</option>
+                <option value="Amszterdam">Amszterdam</option> <option value="Andorra la Vella">Andorra la Vella</option> <option value="Ankara">Ankara</option> <option value="Athén">Athén</option> <option value="Bécs">Bécs</option> <option value="Belgrád">Belgrád</option> <option value="Berlin">Berlin</option> <option value="Bern">Bern</option> <option value="Brüsszel">Brüsszel</option> <option value="Budapest">Budapest</option> <option value="Bukarest">Bukarest</option> <option value="Chișinău">Chișinău</option> <option value="Douglas (Man)">Douglas (Man)</option> <option value="Dublin">Dublin</option> <option value="Helsinki">Helsinki</option> <option value="Kijev">Kijev</option> <option value="Koppenhága">Koppenhága</option> <option value="Lisszabon">Lisszabon</option> <option value="Ljubljana">Ljubljana</option> <option value="London">London</option> <option value="Luxembourg">Luxembourg</option> <option value="Madrid">Madrid</option> <option value="Minszk">Minszk</option> <option value="Monaco (település)">Monaco (település)</option> <option value="Moszkva">Moszkva</option> <option value="Nicosia">Nicosia</option> <option value="Oslo">Oslo</option> <option value="Párizs">Párizs</option> <option value="Podgorica">Podgorica</option> <option value="Pozsony">Pozsony</option> <option value="Pristina">Pristina</option> <option value="Reykjavík">Reykjavík</option> <option value="Riga">Riga</option> <option value="Róma">Róma</option> <option value="Saint Helier">Saint Helier</option> <option value="Saint Peter Port">Saint Peter Port</option> <option value="San Marino (San Marino)">San Marino (San Marino)</option> <option value="Stockholm">Stockholm</option> <option value="Szarajevó">Szarajevó</option> <option value="Szkopje">Szkopje</option> <option value="Szófia">Szófia</option> <option value="Tallinn">Tallinn</option> <option value="Tirana">Tirana</option> <option value="Tiraszpol">Tiraszpol</option> <option value="Tórshavn">Tórshavn</option> <option value="Vaduz">Vaduz</option> <option value="Valletta">Valletta</option> <option value="Varsó">Varsó</option> <option value="Vatikán">Vatikán</option> <option value="Vilnius">Vilnius</option> <option value="Zágráb">Zágráb</option>
+                
+            </select>
+    
+            <label for="adults">Felnőttek száma:</label>
+            <input type="number" id="adults" name="adults" min="0" value="1" required>
+    
+            <label for="children">Gyerekek száma:</label>
+            <input type="number" id="children" name="children" min="0" value="0" required>
+    
+            <label for="returnDate">Indulás dátuma:</label>
+            <input type="text" id="returnDate" name="returnDate" placeholder="Válasszon dátumot" required>
+    
+            <label for="departureDate">Visszaérkezés dátuma:</label>
+            <input type="text" id="departureDate" name="departureDate" placeholder="Válasszon dátumot" required>
+    
+            <button type="button" onclick="searchFlights()">Keresés</button>
+        </form>
+        <div id="paymentModal" class="modal">
+            <div class="modal-content">
+                <div id="paymentAmount">
+                    <p id="paymentAmount">Fizetendő összeg: 20.000 Ft</p>
+                </div>
+                <h3>Fizetés</h3>
+                <form id="paymentForm">
+                    <label for="cardNumber">Bankkártya száma:</label>
+                    <input type="text" id="cardNumber" name="cardNumber" placeholder="XXXX-XXXX-XXXX-XXXX" required>
+    
+                    <label for="expiryDate">Lejárat dátuma:</label>
+                    <input type="text" id="expiryDate" name="expiryDate" placeholder="MM/ÉÉ" required>
+    
+                    <label for="cvv">CVV kód:</label>
+                    <input type="text" id="cvv" name="cvv" placeholder="XXX" required>
+    
+                    <button type="button" onclick="processPayment()">Fizetés</button>
+                </form>
+            </div>
+        </div>
+
+    
+
+    <script>
+        flatpickr("#departureDate", { dateFormat: "Y-m-d" });
+        flatpickr("#returnDate", { dateFormat: "Y-m-d" });
+
+        function searchFlights() {
+
+            document.getElementById('paymentModal').style.display = 'flex';
+        }
+    
+        function processPayment() {
+
+            document.getElementById('paymentModal').style.display = 'none';
+        }
+    
+        
+        window.onclick = function (event) {
+            const modal = document.getElementById('paymentModal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        };
+    </script>
+</body>
+</html>
